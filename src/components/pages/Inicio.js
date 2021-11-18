@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
 import fondo from '../../img/coffee.jpg'
-
 import React from 'react';
 
 const Inicio = () => {

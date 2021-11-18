@@ -1,8 +1,5 @@
-import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import error from '../../img/error-404.jpg';
-
-
 import React from 'react';
 
 const Error404 = () => {
