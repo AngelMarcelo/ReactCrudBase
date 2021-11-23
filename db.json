@@ -1,0 +1,23 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombreProducto": "Té de manzanilla",
+      "precioProducto": "40",
+      "categoria": "bebida-caliente"
+    },
+    {
+      "id": 2,
+      "nombreProducto": "café con leche",
+      "precioProducto": "80",
+      "categoria": "bebida-caliente"
+    },
+    {
+      "id": 3,
+      "nombreProducto": "Medialuna",
+      "precioProducto": "35",
+      "categoria": "dulce"
+    }
+  ]
+  
+}
