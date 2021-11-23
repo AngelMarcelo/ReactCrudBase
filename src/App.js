@@ -8,15 +8,39 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Inicio from './components/pages/Inicio';
 import ListaProductos from './components/productos/ListaProductos';
 import AgregarProducto from './components/productos/AgregarProducto';
-import EditarProducto from './components/productos/EditarProducto'
+import EditarProducto from './components/productos/EditarProducto';
+import {useState, useEffect} from 'react';
 
 function App() {
+// declarar variables
+const [productos, setProductos]= useState([]);
+const URL = process.env.REACT_APP_API_URL;
+//console.log(URL);
+
+useEffect(()=>{
+consultarAPI();
+},[]);
+
+const consultarAPI = async() =>{
+  try{
+  // codigo que ejecuto normalmente
+const respuesta = await fetch(URL);
+const datos = await respuesta.json();
+//console.log(respuesta);
+//console.log(datos);
+setProductos(datos)
+}catch(error){
+console.log(error);
+}
+
+}
+
   return (
     <Router>
       <Navigation/>
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
-        <Route exact path="/productos" element={<ListaProductos></ListaProductos>}></Route>
+        <Route exact path="/productos" element={<ListaProductos productos={productos}></ListaProductos>}></Route>
         <Route exact path="/productos/nuevo" element={<AgregarProducto></AgregarProducto>}></Route>
         <Route exact path="/productos/editar" element={<EditarProducto></EditarProducto>}></Route>
 
