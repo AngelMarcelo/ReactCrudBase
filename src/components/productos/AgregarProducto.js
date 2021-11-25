@@ -51,7 +51,7 @@ const productoNuevo ={
     // resetear el formulario
        e.target.reset();
        // consultar los datos de al api
-       props.
+       
        //redireccionar
        navegacion ("/productos");
 
