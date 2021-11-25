@@ -23,6 +23,24 @@
       "precioProducto": "45",
       "categoria": "bebida-caliente",
       "id": 4
+    },
+    {
+      "nombreProducto": "cafe",
+      "precioProducto": "250",
+      "categoria": "bebida-caliente",
+      "id": 5
+    },
+    {
+      "nombreProducto": "arroz con leche",
+      "precioProducto": "350",
+      "categoria": "dulce",
+      "id": 6
+    },
+    {
+      "nombreProducto": "cafe con leche",
+      "precioProducto": "250",
+      "categoria": "bebida-caliente",
+      "id": 7
     }
   ]
 }

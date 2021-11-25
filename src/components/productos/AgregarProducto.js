@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Form, Button, Container, Alert } from "react-bootstrap";
 import { campoRequerido, rangoPrecio } from "../helpers/helpers";
 import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 const AgregarProducto = () => {
 const [nombreProducto, setNombreProducto] = useState('');
@@ -9,6 +10,7 @@ const [precioProducto, setPrecioProducto] = useState('0');
 const [categoria, setCategoria] = useState('');
 const [error, setError] = useState(false);
 const URL = process.env.REACT_APP_API_URL;
+const navegacion = useNavigate();
 
 const handleSubmit = async (e)=>{
   e.preventDefault();
@@ -48,8 +50,10 @@ const productoNuevo ={
       console.log(e.target)
     // resetear el formulario
        e.target.reset();
+       // consultar los datos de al api
+       props.
        //redireccionar
-
+       navegacion ("/productos");
 
     }else{
       //mostrar un cartel indicando que lo intente mas tarde
