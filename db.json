@@ -17,7 +17,12 @@
       "nombreProducto": "Medialuna",
       "precioProducto": "35",
       "categoria": "dulce"
+    },
+    {
+      "nombreProducto": "te",
+      "precioProducto": "45",
+      "categoria": "bebida-caliente",
+      "id": 4
     }
   ]
-  
 }

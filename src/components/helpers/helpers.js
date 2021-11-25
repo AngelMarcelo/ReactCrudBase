@@ -16,3 +16,6 @@ const rangoPrecio = (dato) =>{
 
 
 export {campoRequerido, rangoPrecio}
+
+// tambien se puede exportar agregando expor antes de la const.... ej
+// export const rangoPrecio.....

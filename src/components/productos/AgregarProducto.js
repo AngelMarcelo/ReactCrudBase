@@ -1,24 +1,77 @@
 import React, {useState} from "react";
 import { Form, Button, Container, Alert } from "react-bootstrap";
 import { campoRequerido, rangoPrecio } from "../helpers/helpers";
+import Swal from 'sweetalert2';
 
 const AgregarProducto = () => {
 const [nombreProducto, setNombreProducto] = useState('');
 const [precioProducto, setPrecioProducto] = useState('0');
 const [categoria, setCategoria] = useState('');
+const [error, setError] = useState(false);
+const URL = process.env.REACT_APP_API_URL;
 
-const handleSubmit = (e)=>{
+const handleSubmit = async (e)=>{
   e.preventDefault();
   console.log("desde preventDefault")
 
   // validar todos los inputs
-
+  if(campoRequerido(nombreProducto) && 
+  rangoPrecio(precioProducto) && 
+  campoRequerido(categoria)) {
+    setError(false)
   // crear un objeto
+const productoNuevo ={
+  nombreProducto: nombreProducto,
+  precioProducto: precioProducto, 
+  categoria: categoria,
+};
 
   // enviar el objeto producto a la api
+  //enviar el objeto a la api POST
+  try{
+    const parametro = {
+     method: "POST",
+     headers: {
+       "Content-Type":"application/json"
+     },
+     body: JSON.stringify(productoNuevo)
+    }
+    const respuesta = await fetch(URL, parametro)
+    console.log(respuesta);
+    if(respuesta.status === 201){
+      //mostrar al usuario un mensaje de operacion exitosa
+      Swal.fire(
+        'El producto',
+        'el producto fue creado correctamente',
+        'success'
+      )
+      console.log(e.target)
+    // resetear el formulario
+       e.target.reset();
+       //redireccionar
+
+
+    }else{
+      //mostrar un cartel indicando que lo intente mas tarde
+    }
+    
+
+
+  }catch(error){
+    console.log(error);
+  }
+ 
+}else {
 
   // si falla la validacion de los inputs, mostrar un mensaje al usuario
-}
+  Swal.fire(
+    'El producto',
+    'el producto NO fue creado correctamente',
+    'success'
+  )
+ 
+ setError(true);
+}};
 
 
   return (
@@ -50,6 +103,12 @@ const handleSubmit = (e)=>{
           Guardar
         </Button>
       </Form>
+
+      {error === true ? <Alert  variant= "danger" className="mb-5" >
+      debe copletar todos los campos y el precio de los productos tiene que estar entre $1 y $5000 
+  </Alert>: null
+      }
+     
     </Container>
   );
 };

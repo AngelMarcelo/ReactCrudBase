@@ -23,7 +23,7 @@ consultarAPI();
 
 const consultarAPI = async() =>{
   try{
-  // codigo que ejecuto normalmente
+  // codigo que ejecuto normalmente, PETICION GET
 const respuesta = await fetch(URL);
 const datos = await respuesta.json();
 //console.log(respuesta);
